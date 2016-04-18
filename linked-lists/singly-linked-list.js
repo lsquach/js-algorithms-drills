@@ -2,7 +2,7 @@
 var Node = function(data, next){
   this.data = data || null;
   this.next = next || null;
-}
+};
 
 
 /* Singly Linked List */
@@ -59,7 +59,20 @@ List.prototype = {
     Insert a new Node at the head of the list.
   */
   prepend: function(data) {
-    // YOUR CODE HERE
+    // if linkedList is empty
+    if(this.head === null) {
+      // create the head (start) node
+      this.head = new Node(data, null);
+      // tail (end) also becomes the head node
+      this.tail = this.head;
+
+    // else linkedList isn't empty
+    } else {
+      var newNode = new Node (data);
+      // 'this' is the _entire_ list!
+      newNode.next = this.head;
+      this.head = newNode;
+    }
   },
 
   /*
@@ -126,7 +139,7 @@ List.prototype = {
   delete: function(data) {
     // YOUR CODE HERE
   }
-}
+};
 
 // export for testing
 module.exports = List;
