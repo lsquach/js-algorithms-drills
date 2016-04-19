@@ -80,9 +80,16 @@ List.prototype = {
     Traverse the list. Return the amount of Nodes in the list.
   */
  length: function() {
-    // YOUR CODE HERE
+   // start tracking a 'current' Node, beginning with the head
+   var current = this.head;
+   var i = 0;
+   // while the 'current' Node isn't null
+   while(current !== null) {
+     i++;
+     current = current.next;
+   }
+   return i;
  },
-
 
   /*
     Method: exists
@@ -90,8 +97,17 @@ List.prototype = {
     true. If not, return false
   */
   exists: function(data) {
-    // YOUR CODE HERE
-  },
+      var current = this.head;
+      var exists = false;
+      for (var i = 0; current !== null; i++) {
+         if (current.data === data) {
+           exists = true;
+           return exists;
+         } else {
+           current = current.next;
+         }
+      }
+    },
 
   /*
     Method: each
@@ -137,8 +153,19 @@ List.prototype = {
     you remove the node!
   */
   delete: function(data) {
-    // YOUR CODE HERE
-  }
+    var savedCurrent;
+    var current = this.head;
+    var exists = false;
+    for (var i = 0; current !== null; i++) {
+         if (current.data === data) {
+            savedCurrent.next = current.next;
+            current = null;
+       } else {
+         savedCurrent = current;
+         current = current.next;
+       }
+    }
+  },
 };
 
 // export for testing

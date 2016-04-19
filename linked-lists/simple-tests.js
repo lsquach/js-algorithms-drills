@@ -45,7 +45,7 @@ LinkedList.print();
 
 // check each method
 function accessor(node) {
-  console.log("  " + node.data + " has been accessed.")
+  console.log("  " + node.data + " has been accessed.");
 }
 console.log('\nAccessing each node:');
 LinkedList.each(accessor);
